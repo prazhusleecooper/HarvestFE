@@ -1,0 +1,33 @@
+@import 'Variables.css';
+
+.navBar {
+    background-color: var(--navBarBG);
+    padding: 15px 15px 15px 25px;
+    /*border: 2px solid yellow;*/
+}
+
+.navLink-inactive {
+    color: var(--navLinkGrey);
+    font-size: var(--navLinkFont);
+    margin: 0 0 0 18px;
+}
+
+.navLink-active {
+    color: var(--primaryGreenRegular);
+    font-size: var(--navLinkFont);
+    margin: 0 0 0 18px;
+}
+
+.navLink-inactive:hover {
+    color: var(--primaryGreenMedium);
+    text-decoration: none;
+}
+
+.navLink-active {
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 7vw;
+    /*height: 4vh;*/
+}
