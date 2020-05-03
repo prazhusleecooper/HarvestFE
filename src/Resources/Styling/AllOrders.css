@@ -1,14 +1,42 @@
 @import 'Variables.css';
 
-.primary-section {
-    height: 90vh;
-    /*border: 2px solid red;*/
-    overflow-y: scroll;
-    -ms-overflow-style: none;
+@media (max-width: 767px)
+{
+    .primary-section {
+        height: 81vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .primary-section {
+        height: 87vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .primary-section {
+        height: 88vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
 }
 
 .primary-section::-webkit-scrollbar {
     display: none;
+}
+
+.no-orders-msg {
+    font-size: var(--emptyMessage);
+    color: var(--primaryOrangeRegular);
 }
 
 .all-orders-text {

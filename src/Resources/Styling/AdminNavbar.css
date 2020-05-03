@@ -27,7 +27,32 @@
     text-decoration: none;
 }
 
-.logo-img {
-    width: 7vw;
-    /*height: 4vh;*/
+
+
+@media (max-width: 767px)
+{
+    .img-div {
+        margin: 0 0 15px 0;
+    }
+
+    .logo-img {
+        width: 20vw;
+        /*height: 4vh;*/
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .logo-img {
+        width: 10vw;
+        /*height: 4vh;*/
+    }
+}
+
+@media (min-width: 992px)
+{
+    .logo-img {
+        width: 8vw;
+        /*height: 4vh;*/
+    }
 }

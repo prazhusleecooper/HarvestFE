@@ -10,6 +10,9 @@
     --tableBgGrey: #F2F2F2;
     --modalInputBg: #F2F2F2;
     --btnRed: #FF0000;
+    --primaryOrangeRegular: #EF964D;
+    --primaryOrangeMedium: #FBB165;
+    --primaryOrangeLight: #FED8B3;
 
     /* FONT SIZING */
     --navLinkFont: 1.1em;
@@ -21,6 +24,7 @@
     --tableText: 1.1em;
     --orderTotalText: 1.5em;
     --modal-input-field: 1.3em;
+    --emptyMessage: 2em;
 
     /* ELEMENT SIZING */
     --order-box-border-radius: 0.9em;

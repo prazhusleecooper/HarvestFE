@@ -1,14 +1,42 @@
 @import 'Variables.css';
 
-.mp-primary-section {
-    height: 90vh;
-    /*border: 2px solid red;*/
-    overflow-y: scroll;
-    -ms-overflow-style: none;
+@media (max-width: 767px)
+{
+    .primary-section {
+        height: 81vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .primary-section {
+        height: 87vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .primary-section {
+        height: 88vh;
+        /*border: 2px solid red;*/
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+    }
 }
 
 .mp-primary-section::-webkit-scrollbar {
     display: none;
+}
+
+.no-products-msg {
+    font-size: var(--emptyMessage);
+    color: var(--primaryOrangeRegular);
 }
 
 .product-section {
@@ -91,6 +119,15 @@ tr:nth-child(odd) {
     margin: 10px 0;
     padding: 10px 0;
     background-color: var(--btnRed);
+    color: var(--text-light);
+    border:none;
+}
+
+.add-product-btn {
+    width: 50%;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: var(--primaryGreenRegular);
     color: var(--text-light);
     border:none;
 }

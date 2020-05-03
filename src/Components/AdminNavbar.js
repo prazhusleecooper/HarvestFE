@@ -13,13 +13,13 @@ class AdminNavbar extends Component {
     render() {
         return(
             <div>
-                <div className='d-flex flex-row align-items-center justify-content-between navBar'>
-                    <div>
+                <div className='d-flex flex-column justify-content-center navBar'>
+                    <div className='img-div'>
                         <img
                             src={Logo}
                             className='logo-img'/>
                     </div>
-                    <div className='d-flex flex-row align-items-center justify-content-between navBar-right-section'>
+                    <div className='d-flex flex-row align-items-center justify-content-center  navBar-right-section'>
                         <NavLink
                             to='/recentOrders'
                             activeClassName='navLink-active'
