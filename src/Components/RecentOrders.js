@@ -373,9 +373,9 @@ class RecentOrders extends Component {
                                     </div>
                                     <table className='items-table'>
                                         <tr>
-                                            <th className='name-column'>Name</th>
-                                            <th className='qty-column'>Total Quantity</th>
-                                            <th className='price-column'>Total Price (₹)</th>
+                                            <th className='name-column-th'>Name</th>
+                                            <th className='qty-column-th'>Total Quantity</th>
+                                            <th className='price-column-th'>Total Price (₹)</th>
                                         </tr>
                                         {
                                             this.state.groupedProducts[key].map((product) => {

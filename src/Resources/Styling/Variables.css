@@ -1,3 +1,4 @@
+
 :root {
     /* COLORS */
     --navBarBG: #F2F2F2;
@@ -13,12 +14,14 @@
     --primaryOrangeRegular: #EF964D;
     --primaryOrangeMedium: #FBB165;
     --primaryOrangeLight: #FED8B3;
+    --tableBorder: #737373;
 
     /* FONT SIZING */
     --navLinkFont: 1.1em;
     --titleText: 1.3em;
+    --titleTextMob: 1.1em;
     --dateText: 1.2em;
-    --itemText: 1.5em;
+    --itemText: 1.3em;
     --btnText: 1.2em;
     --tableTitle: 1.3em;
     --tableText: 1.1em;
@@ -29,3 +32,12 @@
     /* ELEMENT SIZING */
     --order-box-border-radius: 0.9em;
 }
+
+/* Fonts */
+/* Roboto-Regular font */
+/*
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Regular'), url(../Fonts/Roboto/Roboto-Regular.tff)  format('opentype');
+}
+*/

@@ -17,9 +17,12 @@ class ManageProducts extends Component {
             addProductModal: false,
             editId: '',
             editName: '',
+            editImage: '',
+            editCategory: '',
             editPriceUnit: '',
             editPricePerUnit: 0,
             addName: '',
+            addImage: '',
             addCategory: '',
             addPriceUnit: '',
             addPricePerUnit: 0,
@@ -37,6 +40,8 @@ class ManageProducts extends Component {
             body: JSON.stringify({
                 id: this.state.editId,
                 name: this.state.editName,
+                category: this.state.editCategory,
+                image: this.state.editImage,
                 priceUnit: this.state.editPriceUnit,
                 pricePerUnit: this.state.editPricePerUnit
             })
@@ -89,6 +94,7 @@ class ManageProducts extends Component {
             body: JSON.stringify({
                 name: this.state.addName,
                 category: this.state.addCategory,
+                image: this.state.addImage,
                 priceUnit: this.state.addPriceUnit,
                 pricePerUnit: this.state.addPricePerUnit,
                 sellers: []
@@ -137,6 +143,8 @@ class ManageProducts extends Component {
         this.setState({
             modal: !this.state.modal,
             editName: '',
+            editCategory: '',
+            editImage: '',
             editPriceUnit: '',
             editPricePerUnit: 0,
         });
@@ -147,6 +155,8 @@ class ManageProducts extends Component {
         this.setState({
             editId: product.id,
             editName: product.name,
+            editCategory: product.category,
+            editImage: product.image,
             editPriceUnit: product.priceUnit,
             editPricePerUnit: product.pricePerUnit,
             modal: !this.state.modal,
@@ -157,6 +167,19 @@ class ManageProducts extends Component {
     handleNameChange = (event) => {
         this.setState({
             editName: event.target.value,
+        })
+    };
+
+    // Handle Modal Category input change
+    handleCategoryChange = (event) => {
+        this.setState({
+            editCategory: event.target.value,
+        })
+    };
+    // Handle Modal Name input change
+    handleImageChange = (event) => {
+        this.setState({
+            editImage: event.target.value,
         })
     };
 
@@ -178,6 +201,13 @@ class ManageProducts extends Component {
     handleAddNameChange = (event) => {
         this.setState({
             addName: event.target.value,
+        })
+    };
+
+    // Handle Add Modal Name input change
+    handleAddImageChange = (event) => {
+        this.setState({
+            addImage: event.target.value,
         })
     };
 
@@ -205,36 +235,6 @@ class ManageProducts extends Component {
     // Component Lifecycle Methods
     // Component-Did-Mount method
     componentDidMount() {
-        // this.setState({
-        //     products: [
-        //         {
-        //             id: '1',
-        //             name: 'Apple',
-        //             category: 'Fruits',
-        //             priceUnit: 'Kilogram',
-        //             pricePerUnit: 140,
-        //             availability: true,
-        //             seller: []
-        //         },
-        //         {
-        //             id: '2',
-        //             name: 'Orange',
-        //             category: 'Fruits',
-        //             priceUnit: 'Kilogram',
-        //             pricePerUnit: 120,
-        //             availability: true,
-        //             seller: []
-        //         }, {
-        //             id: '3',
-        //             name: 'Onion',
-        //             category: 'Vegetables',
-        //             priceUnit: 'Kilogram',
-        //             pricePerUnit: 100,
-        //             availability: true,
-        //             seller: []
-        //         },
-        //     ]
-        // }, () => this.generateCategories());
         fetch('http://localhost:1337/allProducts',{
             method: 'GET',
             mode: 'cors',
@@ -290,15 +290,43 @@ class ManageProducts extends Component {
                                     onChange={(event) => this.handleNameChange(event)}
                                 />
                                 <div className='field-section'>
-                                    <span className='field-text'>Price Unit:</span>
+                                    <span className='field-text'>Category:</span>
                                 </div>
                                 <input
                                     type='text'
-                                    value={ this.state.editPriceUnit }
-                                    placeholder='Product Price unit'
+                                    value={ this.state.editCategory }
+                                    placeholder='Product Category'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handlePriceUnitChange(event)}
+                                    onChange={(event) => this.handleCategoryChange(event)}
                                 />
+                                <div className='field-section'>
+                                    <span className='field-text'>Image:</span>
+                                </div>
+                                <input
+                                    type='text'
+                                    value={ this.state.editImage }
+                                    placeholder='Product Image URL'
+                                    className='modal-text-input'
+                                    onChange={(event) => this.handleImageChange(event)}
+                                />
+                                <div className='field-section'>
+                                    <span className='field-text'>Price Unit:</span>
+                                </div>
+                                {/*<input*/}
+                                {/*    type='text'*/}
+                                {/*    value={ this.state.editPriceUnit }*/}
+                                {/*    placeholder='Product Price unit'*/}
+                                {/*    className='modal-text-input'*/}
+                                {/*    onChange={(event) => this.handlePriceUnitChange(event)}*/}
+                                {/*/>*/}
+                                <select
+                                    value={this.state.editPriceUnit}
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.handlePriceUnitChange(event)}
+                                >
+                                    <option value="Kilogram">Kilogram</option>
+                                    <option value="Individual">Individual</option>
+                                </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
                                 </div>
@@ -357,15 +385,26 @@ class ManageProducts extends Component {
                                     onChange={(event) => this.handleAddCategoryChange(event)}
                                 />
                                 <div className='field-section'>
-                                    <span className='field-text'>Price Unit:</span>
+                                    <span className='field-text'>Image:</span>
                                 </div>
                                 <input
                                     type='text'
-                                    value={ this.state.addPriceUnit }
-                                    placeholder='Product Price unit'
+                                    value={ this.state.addImage }
+                                    placeholder='Product Image URL'
                                     className='modal-text-input'
-                                    onChange={(event) => this.handleAddPriceUnitChange(event)}
+                                    onChange={(event) => this.handleAddImageChange(event)}
                                 />
+                                <div className='field-section'>
+                                    <span className='field-text'>Price Unit:</span>
+                                </div>
+                                <select
+                                    value={this.state.addPriceUnit}
+                                    className='mp-dropDown'
+                                    onChange={(event) => this.handleAddPriceUnitChange(event)}
+                                >
+                                    <option value="Kilogram">Kilogram</option>
+                                    <option value="Individual">Individual</option>
+                                </select>
                                 <div className='field-section'>
                                     <span className='field-text'>Price per Unit:</span>
                                 </div>

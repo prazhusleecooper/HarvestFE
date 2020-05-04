@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from "react-router-dom";
+import { Navbar, NavbarBrand, NavLink, Nav } from "react-bootstrap";
+import { NavLink as RouterNavLink } from "react-router-dom" ;
 
 import '../Resources/Styling/AdminNavbar.css';
 import Logo from '../Resources/Images/Logo.png'
@@ -12,38 +13,43 @@ class AdminNavbar extends Component {
 
     render() {
         return(
-            <div>
-                <div className='d-flex flex-column justify-content-center navBar'>
-                    <div className='img-div'>
-                        <img
-                            src={Logo}
-                            className='logo-img'/>
-                    </div>
-                    <div className='d-flex flex-row align-items-center justify-content-center  navBar-right-section'>
-                        <NavLink
-                            to='/recentOrders'
-                            activeClassName='navLink-active'
-                            className='navLink-inactive'
-                        >
-                            Recent Orders
-                        </NavLink>
-                        <NavLink
-                            to='/allOrders'
-                            activeClassName='navLink-active'
-                            className='navLink-inactive'
-                        >
-                            All Orders
-                        </NavLink>
-                        <NavLink
-                            to='/manageProducts'
-                            activeClassName='navLink-active'
-                            className='navLink-inactive'
-                        >
-                            Manage Products
-                        </NavLink>
-                    </div>
-                </div>
-            </div>
+            <Navbar bg="white" expand="lg">
+                <Navbar.Brand >
+                    <img src={Logo} className="logo-img" alt="Logo"></img>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link>
+                            <RouterNavLink
+                                to='/recentOrders'
+                                activeClassName='navLink-active'
+                                className='navLink-inactive'
+                            >
+                                Recent Orders
+                            </RouterNavLink>
+                        </Nav.Link>
+                        <Nav.Link>
+                            <RouterNavLink
+                                to='/allOrders'
+                                activeClassName='navLink-active'
+                                className='navLink-inactive'
+                            >
+                                All Orders
+                            </RouterNavLink>
+                        </Nav.Link>
+                        <Nav.Link>
+                            <RouterNavLink
+                                to='/manageProducts'
+                                activeClassName='navLink-active'
+                                className='navLink-inactive'
+                            >
+                                Manage Products
+                            </RouterNavLink>
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
 }
